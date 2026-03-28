@@ -1,0 +1,120 @@
+{
+  "population_risk_benchmarks": {
+    "diabetes": {
+      "base_risk": 10.5,
+      "bmi_overweight_modifier": 1.8,
+      "bmi_obese_modifier": 3.2,
+      "sedentary_modifier": 1.5,
+      "family_history_modifier": 2.4,
+      "poor_diet_modifier": 1.3,
+      "age_over_45_modifier": 1.7
+    },
+    "heart_disease": {
+      "base_risk": 8.2,
+      "smoking_modifier": 2.5,
+      "bmi_obese_modifier": 1.9,
+      "sedentary_modifier": 1.6,
+      "family_history_modifier": 2.1,
+      "stress_modifier": 1.4,
+      "poor_sleep_modifier": 1.3
+    },
+    "hypertension": {
+      "base_risk": 12.0,
+      "bmi_obese_modifier": 2.0,
+      "high_stress_modifier": 1.7,
+      "poor_diet_modifier": 1.5,
+      "sedentary_modifier": 1.4,
+      "smoking_modifier": 1.6,
+      "age_over_40_modifier": 1.5
+    },
+    "obesity": {
+      "base_risk": 15.0,
+      "sedentary_modifier": 2.2,
+      "poor_diet_modifier": 2.0,
+      "poor_sleep_modifier": 1.4,
+      "stress_modifier": 1.3
+    },
+    "bone_health": {
+      "base_risk": 9.0,
+      "vitamin_d_deficiency_modifier": 2.3,
+      "calcium_deficiency_modifier": 2.0,
+      "sedentary_modifier": 1.5,
+      "age_over_50_modifier": 1.8,
+      "female_modifier": 1.6
+    },
+    "mental_health": {
+      "base_risk": 18.0,
+      "poor_sleep_modifier": 2.0,
+      "high_stress_modifier": 2.2,
+      "sedentary_modifier": 1.4,
+      "social_isolation_modifier": 1.8
+    },
+    "respiratory": {
+      "base_risk": 7.0,
+      "smoking_modifier": 3.5,
+      "obesity_modifier": 1.7,
+      "sedentary_modifier": 1.3
+    }
+  },
+  "keyword_risk_map": {
+    "vitamin d deficiency": { "bone_health": 2.3, "mental_health": 1.3, "immune": 1.5 },
+    "vitamin d": { "bone_health": 2.0, "mental_health": 1.2 },
+    "diabetes": { "diabetes": 2.4, "heart_disease": 1.5, "hypertension": 1.3 },
+    "diabetic": { "diabetes": 2.4, "heart_disease": 1.5 },
+    "heart disease": { "heart_disease": 2.1, "hypertension": 1.4 },
+    "heart attack": { "heart_disease": 2.8, "hypertension": 1.6 },
+    "hypertension": { "hypertension": 2.2, "heart_disease": 1.4 },
+    "blood pressure": { "hypertension": 1.9, "heart_disease": 1.3 },
+    "obesity": { "obesity": 2.0, "diabetes": 1.6, "heart_disease": 1.5 },
+    "overweight": { "obesity": 1.6, "diabetes": 1.3 },
+    "cholesterol": { "heart_disease": 1.8, "hypertension": 1.4 },
+    "cancer": { "cancer": 2.0 },
+    "thyroid": { "thyroid": 2.0, "obesity": 1.3, "mental_health": 1.2 },
+    "asthma": { "respiratory": 2.0 },
+    "depression": { "mental_health": 2.2 },
+    "anxiety": { "mental_health": 1.9 },
+    "stroke": { "heart_disease": 2.5, "hypertension": 2.0 },
+    "kidney": { "kidney": 2.0, "hypertension": 1.5 },
+    "liver": { "liver": 2.0 },
+    "iron deficiency": { "anemia": 2.3, "mental_health": 1.2 },
+    "anemia": { "anemia": 2.5, "mental_health": 1.3 },
+    "calcium deficiency": { "bone_health": 2.0 },
+    "vitamin b12": { "mental_health": 1.4, "anemia": 1.6 },
+    "b12 deficiency": { "mental_health": 1.5, "anemia": 1.8 },
+    "headaches": { "hypertension": 1.2, "mental_health": 1.1 },
+    "frequent headaches": { "hypertension": 1.4, "mental_health": 1.2 },
+    "fatigue": { "mental_health": 1.3, "thyroid": 1.2, "anemia": 1.3 },
+    "low energy": { "mental_health": 1.2, "thyroid": 1.2, "anemia": 1.2 },
+    "poor sleep": { "mental_health": 1.8, "heart_disease": 1.3, "obesity": 1.3 },
+    "insomnia": { "mental_health": 1.9, "heart_disease": 1.2 },
+    "joint pain": { "bone_health": 1.5, "obesity": 1.2 },
+    "back pain": { "bone_health": 1.3, "obesity": 1.2 },
+    "shortness of breath": { "respiratory": 1.7, "heart_disease": 1.4 },
+    "chest pain": { "heart_disease": 2.0, "hypertension": 1.6 },
+    "blurred vision": { "diabetes": 1.6, "hypertension": 1.3 },
+    "frequent urination": { "diabetes": 1.8, "kidney": 1.3 },
+    "excessive thirst": { "diabetes": 1.9 },
+    "dizziness": { "hypertension": 1.5, "anemia": 1.3 },
+    "nausea": { "liver": 1.2, "kidney": 1.1 },
+    "weight gain": { "thyroid": 1.5, "obesity": 1.4 },
+    "memory loss": { "mental_health": 1.4 },
+    "skin problems": { "liver": 1.2 },
+    "stress": { "heart_disease": 1.4, "hypertension": 1.4, "mental_health": 1.6 },
+    "family history": { "heart_disease": 1.5, "diabetes": 1.5, "hypertension": 1.3 }
+  },
+  "improvement_actions": {
+    "exercise_increase": { "obesity": -1.3, "diabetes": -1.2, "heart_disease": -1.2, "hypertension": -1.2, "mental_health": -1.3 },
+    "quit_smoking": { "heart_disease": -2.2, "respiratory": -3.0, "hypertension": -1.5 },
+    "diet_improvement": { "obesity": -1.5, "diabetes": -1.3, "hypertension": -1.3, "heart_disease": -1.2 },
+    "sleep_improvement": { "mental_health": -1.8, "obesity": -1.2, "heart_disease": -1.2 },
+    "stress_reduction": { "hypertension": -1.5, "heart_disease": -1.3, "mental_health": -1.8 },
+    "bmi_normalization": { "diabetes": -1.6, "heart_disease": -1.5, "hypertension": -1.7, "obesity": -2.0 }
+  },
+  "meta": {
+    "source": "Simulated Clinical Dataset v2.1",
+    "last_updated": "2025-01-01",
+    "population_size": 50000,
+    "confidence_level": "illustrative",
+    "disclaimer": "This dataset is for educational simulation purposes only and does not constitute medical advice."
+  }
+}

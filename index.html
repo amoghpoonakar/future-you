@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Future You – AI Health Time Machine</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
 
   <!-- HERO HEADER -->
@@ -15,7 +19,8 @@
     <div class="hero-content">
       <div class="hero-badge">🧠 AI Health Time Machine</div>
       <h1>Future <span class="accent">You</span></h1>
-      <p class="hero-sub">Enter your current lifestyle — see your health trajectory 5, 10 & 20 years from now, powered by AI reasoning.</p>
+      <p class="hero-sub">Enter your current lifestyle — see your health trajectory 5, 10 & 20 years from now, powered
+        by AI reasoning.</p>
     </div>
   </header>
 
@@ -34,32 +39,42 @@
       <section class="panel input-panel">
         <h2 class="panel-title">📋 Your Health Profile</h2>
 
-        <!-- BASIC INFO -->
+        <!-- AGE -->
         <div class="form-group">
-          <label>Age <span class="unit">years</span></label>
-          <input type="range" id="age" min="18" max="80" value="30" />
-          <div class="range-val" id="ageVal">30</div>
-        </div>
-
-        <div class="form-group">
-          <label>Height <span class="unit">cm</span></label>
-          <input type="range" id="height" min="140" max="210" value="170" />
-          <div class="range-val" id="heightVal">170 cm</div>
-        </div>
-
-        <div class="form-group">
-          <label>Weight <span class="unit">kg</span></label>
-          <input type="range" id="weight" min="40" max="160" value="70" />
-          <div class="range-val" id="weightVal">70 kg</div>
-        </div>
-
-        <div class="form-group">
-          <label>Sex at Birth</label>
-          <div class="toggle-group">
-            <button class="tog active" id="togMale" onclick="setSex('male')">Male</button>
-            <button class="tog" id="togFemale" onclick="setSex('female')">Female</button>
+          <label>Age</label>
+          <div class="input-wrap">
+            <input type="number" id="age" value="30" />
+            <span class="input-unit">yrs</span>
           </div>
         </div>
+
+        <!-- HEIGHT -->
+        <div class="form-group">
+          <label>Height</label>
+          <div class="input-wrap">
+            <input type="number" id="height" value="170" />
+            <span class="input-unit">cm</span>
+          </div>
+        </div>
+
+        <!-- WEIGHT -->
+        <div class="form-group">
+          <label>Weight</label>
+          <div class="input-wrap">
+            <input type="number" id="weight" value="70" />
+            <span class="input-unit">kg</span>
+          </div>
+        </div>
+
+        <!-- GENDER -->
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="toggle-group">
+            <button class="tog active">Male</button>
+            <button class="tog">Female</button>
+          </div>
+        </div>
+
 
         <!-- LIFESTYLE -->
         <div class="section-divider">Lifestyle Factors</div>
@@ -126,14 +141,19 @@
         <div class="form-group">
           <label class="label-note">General Health Notes <span class="optional-tag">Optional</span></label>
           <p class="input-hint">Describe symptoms or issues you're experiencing</p>
-          <textarea id="healthNotes" placeholder="e.g. Frequent headaches, low energy, poor sleep, feeling tired often, joint pain..." rows="3"></textarea>
+          <textarea id="healthNotes"
+            placeholder="e.g. Frequent headaches, low energy, poor sleep, feeling tired often, joint pain..."
+            rows="3"></textarea>
           <div class="keyword-chips" id="notesKeywords"></div>
         </div>
 
         <div class="form-group">
-          <label class="label-note">Medical History & Deficiencies <span class="priority-tag">High Priority</span></label>
+          <label class="label-note">Medical History & Deficiencies <span class="priority-tag">High
+              Priority</span></label>
           <p class="input-hint">Past diseases, vitamin deficiencies, family medical history</p>
-          <textarea id="medHistory" placeholder="e.g. Vitamin D deficiency, had diabetes in past, family history of heart disease, B12 deficiency..." rows="3"></textarea>
+          <textarea id="medHistory"
+            placeholder="e.g. Vitamin D deficiency, had diabetes in past, family history of heart disease, B12 deficiency..."
+            rows="3"></textarea>
           <div class="keyword-chips" id="historyKeywords"></div>
         </div>
 
@@ -203,11 +223,13 @@
     </div>
 
     <footer class="footer">
-      <p>⚠️ This tool is for educational and informational purposes only. It does not constitute medical advice. Always consult a qualified healthcare professional.</p>
+      <p>⚠️ This tool is for educational and informational purposes only. It does not constitute medical advice. Always
+        consult a qualified healthcare professional.</p>
       <p class="footer-meta">Dataset: Simulated Clinical Data v2.1 · AI Engine: Keyword-Mapped NLP + Risk Modelling</p>
     </footer>
   </main>
 
   <script src="app.js"></script>
 </body>
+
 </html>

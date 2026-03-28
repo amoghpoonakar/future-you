@@ -95,14 +95,22 @@ function getEmbeddedDataset() {
 // RANGE INPUT BINDINGS
 // ──────────────────────────────────────────────
 function bindRanges() {
+  const inputs = ['age', 'height', 'weight'];
+
+  inputs.forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => {
+      updateBMILive();
+    });
+  });
+
+  // Keep these as sliders (unchanged)
   const ranges = [
-    { id: 'age', valId: 'ageVal', fmt: v => `${v} yrs` },
-    { id: 'height', valId: 'heightVal', fmt: v => `${v} cm` },
-    { id: 'weight', valId: 'weightVal', fmt: v => `${v} kg` },
     { id: 'exercise', valId: 'exerciseVal', fmt: v => `${v} day${v == 1 ? '' : 's'}` },
     { id: 'sleep', valId: 'sleepVal', fmt: v => `${v} hrs` },
     { id: 'stress', valId: 'stressVal', fmt: v => `${v} / 10` },
   ];
+
   ranges.forEach(({ id, valId, fmt }) => {
     const el = document.getElementById(id);
     const val = document.getElementById(valId);
@@ -112,9 +120,12 @@ function bindRanges() {
     });
   });
 
-  // NLP on textarea
-  document.getElementById('healthNotes').addEventListener('input', () => extractAndShowKeywords('healthNotes', 'notesKeywords', false));
-  document.getElementById('medHistory').addEventListener('input', () => extractAndShowKeywords('medHistory', 'historyKeywords', true));
+  // NLP listeners (unchanged)
+  document.getElementById('healthNotes')
+    .addEventListener('input', () => extractAndShowKeywords('healthNotes', 'notesKeywords', false));
+
+  document.getElementById('medHistory')
+    .addEventListener('input', () => extractAndShowKeywords('medHistory', 'historyKeywords', true));
 }
 
 function setSex(sex) {

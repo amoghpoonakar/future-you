@@ -1,4 +1,4 @@
-# Future You – Health Time Machine
+# FutureYou – Health Time Machine
 
 A web-based health analytics application that projects potential future health risks based on current lifestyle, habits, and medical history. The system combines rule-based risk modeling with keyword-driven analysis to provide a structured, explainable forecast over 5, 10, and 20-year timelines.
 

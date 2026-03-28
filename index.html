@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future You – AI Health Time Machine</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HERO HEADER -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🧠 AI Health Time Machine</div>
+      <h1>Future <span class="accent">You</span></h1>
+      <p class="hero-sub">Enter your current lifestyle — see your health trajectory 5, 10 & 20 years from now, powered by AI reasoning.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- DATASET STATUS -->
+    <div class="dataset-card" id="datasetStatus">
+      <span class="ds-dot" id="dsDot"></span>
+      <span id="dsLabel">Loading medical dataset...</span>
+    </div>
+
+    <!-- TWO-COLUMN LAYOUT -->
+    <div class="grid-layout">
+
+      <!-- LEFT COLUMN: INPUTS -->
+      <section class="panel input-panel">
+        <h2 class="panel-title">📋 Your Health Profile</h2>
+
+        <!-- BASIC INFO -->
+        <div class="form-group">
+          <label>Age <span class="unit">years</span></label>
+          <input type="range" id="age" min="18" max="80" value="30" />
+          <div class="range-val" id="ageVal">30</div>
+        </div>
+
+        <div class="form-group">
+          <label>Height <span class="unit">cm</span></label>
+          <input type="range" id="height" min="140" max="210" value="170" />
+          <div class="range-val" id="heightVal">170 cm</div>
+        </div>
+
+        <div class="form-group">
+          <label>Weight <span class="unit">kg</span></label>
+          <input type="range" id="weight" min="40" max="160" value="70" />
+          <div class="range-val" id="weightVal">70 kg</div>
+        </div>
+
+        <div class="form-group">
+          <label>Sex at Birth</label>
+          <div class="toggle-group">
+            <button class="tog active" id="togMale" onclick="setSex('male')">Male</button>
+            <button class="tog" id="togFemale" onclick="setSex('female')">Female</button>
+          </div>
+        </div>
+
+        <!-- LIFESTYLE -->
+        <div class="section-divider">Lifestyle Factors</div>
+
+        <div class="form-group">
+          <label>Exercise <span class="unit">days/week</span></label>
+          <input type="range" id="exercise" min="0" max="7" value="2" />
+          <div class="range-val" id="exerciseVal">2 days</div>
+        </div>
+
+        <div class="form-group">
+          <label>Sleep <span class="unit">hours/night</span></label>
+          <input type="range" id="sleep" min="3" max="10" value="6" />
+          <div class="range-val" id="sleepVal">6 hrs</div>
+        </div>
+
+        <div class="form-group">
+          <label>Stress Level</label>
+          <input type="range" id="stress" min="1" max="10" value="5" />
+          <div class="range-val" id="stressVal">5 / 10</div>
+        </div>
+
+        <div class="form-group">
+          <label>Diet Quality</label>
+          <div class="select-wrap">
+            <select id="diet">
+              <option value="excellent">🥗 Excellent</option>
+              <option value="good">🍎 Good</option>
+              <option value="average" selected>🍔 Average</option>
+              <option value="poor">🍟 Poor</option>
+              <option value="very_poor">🍕 Very Poor</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Smoking Status</label>
+          <div class="select-wrap">
+            <select id="smoking">
+              <option value="never" selected>Never smoked</option>
+              <option value="former">Former smoker</option>
+              <option value="occasional">Occasional smoker</option>
+              <option value="regular">Regular smoker</option>
+              <option value="heavy">Heavy smoker</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Alcohol Consumption</label>
+          <div class="select-wrap">
+            <select id="alcohol">
+              <option value="none" selected>None</option>
+              <option value="light">Light (1–2 drinks/week)</option>
+              <option value="moderate">Moderate (3–7/week)</option>
+              <option value="heavy">Heavy (8+/week)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- OPTIONAL NLP INPUTS -->
+        <div class="section-divider">🗒️ Optional Health Context (AI-Analyzed)</div>
+
+        <div class="form-group">
+          <label class="label-note">General Health Notes <span class="optional-tag">Optional</span></label>
+          <p class="input-hint">Describe symptoms or issues you're experiencing</p>
+          <textarea id="healthNotes" placeholder="e.g. Frequent headaches, low energy, poor sleep, feeling tired often, joint pain..." rows="3"></textarea>
+          <div class="keyword-chips" id="notesKeywords"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="label-note">Medical History & Deficiencies <span class="priority-tag">High Priority</span></label>
+          <p class="input-hint">Past diseases, vitamin deficiencies, family medical history</p>
+          <textarea id="medHistory" placeholder="e.g. Vitamin D deficiency, had diabetes in past, family history of heart disease, B12 deficiency..." rows="3"></textarea>
+          <div class="keyword-chips" id="historyKeywords"></div>
+        </div>
+
+        <button class="analyze-btn" onclick="runAnalysis()">
+          <span>⚡ Analyze My Future Health</span>
+        </button>
+      </section>
+
+      <!-- RIGHT COLUMN: RESULTS -->
+      <section class="panel results-panel" id="resultsPanel">
+
+        <!-- BMI CARD -->
+        <div class="bmi-card" id="bmiCard">
+          <div class="bmi-label">BMI</div>
+          <div class="bmi-value" id="bmiValue">—</div>
+          <div class="bmi-category" id="bmiCategory">—</div>
+          <div class="bmi-bar-wrap">
+            <div class="bmi-bar">
+              <div class="bmi-fill" id="bmiFill"></div>
+              <div class="bmi-marker" id="bmiMarker"></div>
+            </div>
+            <div class="bmi-labels">
+              <span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIMELINE TABS -->
+        <div class="timeline-tabs">
+          <button class="ttab active" onclick="setTab(5, this)">5 Years</button>
+          <button class="ttab" onclick="setTab(10, this)">10 Years</button>
+          <button class="ttab" onclick="setTab(20, this)">20 Years</button>
+        </div>
+
+        <!-- RISK GAUGES -->
+        <div class="risk-grid" id="riskGrid">
+          <div class="placeholder-msg">
+            <div class="placeholder-icon">🔬</div>
+            <p>Fill in your profile and click Analyze to see your health forecast</p>
+          </div>
+        </div>
+
+        <!-- AI REASONING PANEL -->
+        <div class="ai-panel" id="aiPanel" style="display:none;">
+          <div class="ai-panel-header" onclick="toggleReasoning()">
+            <span>🧠 AI Reasoning — Why these results?</span>
+            <span class="ai-chevron" id="aiChevron">▼</span>
+          </div>
+          <div class="ai-panel-body" id="aiReasoningBody">
+            <!-- Steps injected here -->
+          </div>
+        </div>
+
+        <!-- RISK EXPLANATIONS -->
+        <div class="explanations-wrap" id="explanationsWrap" style="display:none;">
+          <h3 class="exp-title">📊 Risk Explanations</h3>
+          <div id="explanationsList"></div>
+        </div>
+
+        <!-- RECOMMENDATIONS -->
+        <div class="reco-wrap" id="recoWrap" style="display:none;">
+          <h3 class="exp-title">✅ Personalized Recommendations</h3>
+          <div id="recoList"></div>
+        </div>
+
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>⚠️ This tool is for educational and informational purposes only. It does not constitute medical advice. Always consult a qualified healthcare professional.</p>
+      <p class="footer-meta">Dataset: Simulated Clinical Data v2.1 · AI Engine: Keyword-Mapped NLP + Risk Modelling</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

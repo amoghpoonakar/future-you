@@ -89,7 +89,7 @@ The system emphasizes interpretability, ensuring users understand *why* each ris
 
 ## Author
 
-**Amogh**
+**Amogh Poonakar**
 
 ---
 
